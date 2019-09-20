@@ -34,4 +34,4 @@
 ## Menus
 
 ## Mixins
-<p>Common mixins and recommened to place to keep mixins</p>
+<p>Common mixins and recommened to place to keep mixins</p> 
