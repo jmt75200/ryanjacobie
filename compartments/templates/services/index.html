@@ -1,0 +1,21 @@
+<section class="services-page"></section>
+<div class="main-container">
+  <h1 class="page-title">Services</h1>
+
+  <div class="services center-container">
+    {{#each items}}
+      <div class="service">
+        <div class="category column-container">
+          <h1>{{fields.title}}</h1>
+          <h1>{{fields.service_price}}</h1>
+        </div>
+        {{#each fields.sub_fields}}
+          <div class="sub-item column-container">
+            <h4>{{title}}</h4>
+            <h4>{{subtitle}}</h4>
+          </div>
+        {{/each}}
+      </div>
+    {{/each}}
+  </div>
+</div>

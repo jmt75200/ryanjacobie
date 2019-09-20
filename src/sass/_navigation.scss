@@ -1,0 +1,101 @@
+/* Main navigation */
+header{
+  background-color: $main-color;
+}
+header > nav{
+  height: 60px;
+  & > ul:first-child{
+    @include flex(1 1 0px);
+    li{
+      display: inline-block;
+      a {
+        padding: 20px;
+        height: 100%;
+        display: inline-block;
+        h1{
+          color: $white;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  & > ul:last-child{
+    flex: 2 2 0px;
+    @include breakpoint-down($small-max){
+      display: none;
+    }
+    @include breakpoint-up($small-min){
+      @include flexContainer(row, 100%);
+      justify-content: flex-end;
+      li{
+        display: inline-block;
+        a{
+          display: inline-block;
+          padding: 20px;
+          border-bottom: 2px solid rgba(0, 0, 0, 0);
+          transition: all 0.5s ease;
+          font-size: 1.2em;
+          text-transform: uppercase;
+          font-weight: 700;
+          color: $white;
+          height: 100%;
+
+          &:hover{
+            border-bottom: 2px solid $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.mobile-button{
+  position: relative;
+  @include breakpoint-down($small-max){
+    @include flexContainer(column, 100%);
+    justify-content: center;
+    align-items: flex-end;
+  }
+  @include breakpoint-up($small-min){
+    display: none;
+  }
+  padding-right: 20px;
+
+  & > div{
+    @include flex(0 0 0px);
+    width: 20px;
+    padding-bottom: 3px;
+    border-bottom: 3px $white solid;
+  }
+  &:hover .mobile-nav{
+    display: block;
+  }
+  .mobile-nav{
+    display:none;
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    // left: 0;
+    right: 0;
+    list-style-type: none;
+    border-top: 2px solid $accent;
+    li{
+      background-color: rgba(255, 255, 255, 0.9);
+      border-bottom: 2px solid rgba(0,0,0,0);
+      text-align: center;
+      font-size: 1.2em;
+      transition: all 0.5s ease;
+      &:hover{
+        border-bottom: 2px solid $accent;
+      }
+      a{
+        display: inline-block;
+        padding: 20px;
+        text-transform: uppercase;
+        width: 100%;
+        color: $accent;
+      }
+    }
+  }
+}

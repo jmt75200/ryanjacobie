@@ -1,0 +1,97 @@
+/*
+  Mixin file
+  Contains all reusable sass
+ */
+
+ /* Breakpoint inlcudes */
+@mixin breakpoint-down($width){
+  // $max: 'only screen and (max-width: $width)';
+  // @media #{$max}{
+  @media only screen and (max-width: $width){
+    @content;
+  }
+}
+
+@mixin breakpoint-up($width){
+  // $min: "only screen and (min-width: $width)";
+  // @media #{$min}{
+  @media only screen and (min-width: $width){
+    @content;
+  }
+}
+
+@mixin breakpoint-between($min, $max){
+  // $between: "only screen and (min-width: $min) and (max-width: $max)";
+  // @media #{$between}{
+  @media only screen and (min-width: $min) and (max-width: $max){
+    @content;
+  }
+}
+
+//Border Radius
+//Pass in the pixel value
+//Contains Browser Pre-fixes
+
+@mixin border-radius ($value){
+  border-radius: $value;
+}
+
+//Font settings
+//set the color, font-family, size and letter-space
+
+//Header Settings
+//set color, font-family, size and letter-space
+
+@mixin borderBox {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin boxSize($width, $height: auto){
+  max-width: $width;
+  height: $height;
+  width: 100%;
+  margin: 0 auto;
+  // margin: 20px auto;
+  // padding: 1em;
+  @include borderBox;
+}
+
+@mixin flexContainer ($direction, $width){
+  display: flex;
+  flex-direction: $direction;
+
+  @include boxSize($width);
+}
+
+@mixin flex($values){
+  flex: $values;
+}
+
+@mixin flexAlert($width, $align:center){
+  @include flexContainer(row, $width);
+  justify-content: center;
+  align-items: $align;
+}
+
+/* Background Images */
+@mixin backgroundImage(){
+  height: $hero-height;
+  background-color: $main-color;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include breakpoint-down(500px){
+    height: $hero-height-mobile;
+  }
+}
+
+@mixin placeHolder ($font_color: $main_font_color){
+  //placeholder style: 
+  //https://css-tricks.com/snippets/css/style-placeholder-text/
+  &::-webkit-input-placeholder { color: $font_color;}
+  &::-moz-placeholder {color: $font_color;}
+  &:-moz-placeholder {color: $font_color;}
+  &:-ms-input-placeholder {color: $font_color;}
+}
+

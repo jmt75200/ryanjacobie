@@ -1,0 +1,59 @@
+/* Grid Variables */
+
+/* Breakpoints */
+$small-max: 854px;
+$small-min: 855px;
+
+/* Style sheet for grids */
+
+*,
+*:after,
+*:before{
+  margin: 0;
+  padding: 0;
+
+  @include borderBox;
+}
+
+img{
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.column-container{
+  @include flexContainer(row, 1080px);
+  margin: 0 auto;
+}
+
+.column{
+  @include flex(1 1 0px);
+  // @supports (display: -webkit-flex) and (not (display: flex)){
+  //   @include flex(1 1 auto);
+  // }
+}
+.column-container{
+  & > div {
+    @include flex(1 1 0px);
+    // @supports (display: -webkit-flex) and (not (display: flex)){
+    //   @include flex(1 1 auto);
+    // }
+    padding: 0 20px;
+  }
+}
+
+.main-container{
+  @include boxSize(1080px);
+  margin: 0 auto;
+  padding: 2em;
+  // height: 90vh;
+}
+
+.center-container{
+  @include boxSize(900px);
+  margin: 0 auto;
+}
+
+.hidden{
+  display: none;
+}

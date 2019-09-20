@@ -1,0 +1,30 @@
+/* Button styles */
+
+
+/* a tag link styles */
+a{
+  color: $main-color;
+  text-decoration: none;
+
+  &:hover{
+    color:$accent;
+  }
+}
+
+/* a tag button style */
+
+
+/* button style */
+button{
+  @include border-radius(10px);
+  border: $main-color 1px solid;
+  padding: 7px 10px;
+  margin: 5px 0;
+  background-color: $main-color;
+  color: white;
+
+  &:hover{
+    background-color: $main-color;
+    border-bottom: 1px $main-color solid;
+  }
+}

@@ -1,0 +1,145 @@
+<section class="appointment-page"></section>
+<div class="main-container">
+  <h1 class="page-title">Make an Appointment</h1>
+  <div class="center-container">
+    <form id="appt-container">
+      <div class="info-container">
+          <div class="field">
+            <label for="name">*First & Last Name</label>
+            <div class="control">
+              <input type="text" id="name" name="name" class="required" placeholder="First and Last Name" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="phone">*Contact Number</label>
+            <div class="control">
+              <input type="phone" id="phone" name="phone" class="required" placeholder="(area code) 000 0000" required maxlength="10">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">*Email</label>
+            <div class="control">
+              <input type="email" id="email" name="email" class="required" placeholder="email@host.com" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="date">*Preferred date</label>
+            <div class="control">
+              <input type="date" id="date" name="preferred_date" class="required" required>
+            </div>
+          </div>
+      </div>
+      <div class="field radio-group-container">
+        <fieldset id="hair_length">
+            <legend>*Hair Length</legend>
+          <div class="radio-container">
+              <input class="required" type="radio" value="Short" name="hair_length" id="short" required>
+              <label for="short"><span class="bold-text">Short to Medium:</span> above the shoulder</label>
+          </div>
+          <div class="radio-container">
+              <input class="required" type="radio" value="medium" name="hair_length" id="medium" required>
+              <label for="medium"><span class="bold-text">Medium:</span> at shoulder</label>
+          </div>
+          <div class="radio-container">
+              <input class="required" type="radio" value="long" name="hair_length" id="long" required>
+              <label for="long"><span class="bold-text">Medium to Long:</span> below shoulder to mid back</label>
+          </div>
+          <div class="radio-container">
+              <input class="required" type="radio" value="extra_long" name="hair_length" id="extra-long" required>
+              <label for="extra-long"><span class="bold-text">Long: </span>below stomach</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="field radio-group-container">
+        <fieldset id="hair_type">
+            <legend>*Hair Type</legend>
+          <div class="radio-container">
+              <input class="required" type="radio" value="straight" name="hair_type" id="straight" required>
+              <label for="straight"><span class="bold-text">Straight</span></label>
+          </div>
+          <div class="radio-container">
+              <input class="required" type="radio" value="wavy" name="hair_type" id="wavy" required>
+              <label for="wavy"><span class="bold-text">Wavy:</span> is shaped</label>
+          </div>
+          <div class="radio-container">
+              <input class="required" type="radio" value="curly" name="hair_type" id="curly" required>
+              <label for="curly"><span class="bold-text">Curly:</span> coil or spring</label>
+          </div>
+          <div class="radio-container">
+              <input class="required" type="radio" value="extra_curly" name="hair_type" id="extra-curly" required>
+              <label for="extra-curly"><span class="bold-text">Extra Curly: </span>tiny coil or zig zap</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="field radio-group-container">
+        <fieldset id="service">
+          <legend>*Service</legend>
+          <div class="radio-container">
+              <input class="required" type="radio" value="maintenance" name="service" id="maintenance" required>
+              <label for="maintenance"><span class="bold-text">Maintenance haircut</span></label>
+          </div>
+          <div class="radio-container">
+              <input class="required" type="radio" value="new_service" name="service" id="new_service" required>
+              <label for="new_service"><span class="bold-text">trying something new</span></label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="field radio-group-container">
+        <fieldset id="color">
+          <legend>Color</legend>
+          <div class="radio-container">
+              <input type="radio" value="touch_up" name="color" id="touch_up">
+              <label for="touch_up"><span class="bold-text">Touch up the new growth</span></label>
+          </div>
+          <div class="radio-container">
+              <input type="radio" value="all_over" name="color" id="all_over">
+              <label for="all_over"><span class="bold-text">All over color:</span> base to ends</label>
+          </div>
+          <div class="radio-container">
+              <input type="radio" value="multi_dim" name="color" id="multi_dim">
+              <label for="multi_dim"><span class="bold-text">Multi-dimensional hair color</span></label>
+          </div>
+          <div class="radio-container">
+              <input type="radio" value="balayage" name="color" id="balayage">
+              <label for="balayage"><span class="bold-text">Balayage: </span>lived in haircolor</label>
+          </div>
+          <div class="radio-container">
+              <input type="radio" value="highlights" name="color" id="highlights">
+              <label for="highlights"><span class="bold-text">Highlights</span></label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="button-container">
+          <div class="g-recaptcha" data-sitekey="6LfhRKEUAAAAANkpy_ll-Qo5qiNAuafwciWXFTK-"></div>
+          <button class="button" onclick="validate()" type="button">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Alert Modals -->
+<div class="danger-err modal-flex hidden">
+  <div class="modal-flex-container">
+    <div class="modal-flex-content">
+      <h2 class="modal-header">Oops, Something Went Wrong</h2>
+      <p>Please check the form again</p>
+      <div class="button-container">
+        <button class="close" onclick="closeModal('.danger-err')">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="success-alert modal-flex hidden">
+  <div class="modal-flex-container">
+    <div class="modal-flex-content">
+      <h2 class="modal-header">Thank You</h2>
+      <p>Your appointment request has been sent. We will contact you soon to confirm.</p>
+      <div class="button-container">
+        <button class="close" onclick="onSuccess()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>

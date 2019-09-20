@@ -1,0 +1,85 @@
+.no-scroll{
+  overflow: hidden;
+}
+.modal-flex{
+  position: fixed;
+  background: rgba(0,0,0,0.5);
+  top: 0; left: 0; right: 0; bottom: 0; 
+  z-index: 10000;
+  transition: all 400ms ease-in;
+}
+
+.modal-flex-class{
+  @include flexAlert(auto);
+}
+
+.danger-err, .success-alert{
+  .modal-flex-container{
+    @include flex(0 1 70%);
+    @include breakpoint-up(900px){
+      @include flex(0 1 40%);
+    }
+    overflow-y: auto;
+    margin: 10% auto;
+    background: $off-white;
+  }
+}
+
+.danger-err{
+  .modal-header{
+    background-color: $error-header;
+    color: $white;
+    border-bottom: 3px solid $error-dark-accent;
+  }
+  .button-container{
+    .close{
+      background-color: $error-button;
+      border-color: $error-dark-accent;
+      @include flex(0 0 50%);
+    }
+  }
+}
+
+.success-alert{
+  .modal-header{
+    background-color: $success-header;
+    color: $white;
+    border-bottom: 3px solid $success-dark-accent;
+  }
+  .button-container{
+    .close{
+      background-color: $success-button;
+      border-color: $success-dark-accent;
+      @include flex(0 0 49%);
+    }
+  }
+}
+
+.modal-flex-content{
+  padding-bottom: 2em;
+  @include flexContainer(row, auto);
+  align-content: space-between;
+  flex-wrap: wrap;
+
+  .modal-header, p, .button-container{
+    @include flex(0 0 100%);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .modal-header{
+    padding-top: 1em;
+    padding-bottom: 20px;
+  }
+  p{
+    color: $dark-grey;
+    font-size: 1.3em;
+    padding-bottom:50px;
+    padding-top: 20px;
+  }
+  .button-container{
+    @include flexContainer(row, 100%);
+    justify-content: flex-end;
+  }
+}
+
+

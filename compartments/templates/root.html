@@ -1,0 +1,74 @@
+<section class="home-page"></section>
+<div class="main-container">
+  <h1 class="top page-title">{{ fields.header }}</h1>
+  <div class="message">
+    {{{ fields.body }}}
+  </div>
+  <!-- {{#each fields.images}}
+  <div class="image-container">
+    <div class="featured-image">
+      <h1>{{title}}</h1>
+      <img src="{{secure_url}}" alt="{{title}}">
+    </div>
+  </div>
+  {{/each}} -->
+  <div class="social-container">
+    <div class="insta-container">
+      <div class="instafeed"></div>
+    </div>
+    
+    <div class="fb-container">
+      <div class="fb-page" data-href="https://www.facebook.com/Ryanjacobie/" data-tabs="timeline" data-height="2000" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/Ryanjacobie/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Ryanjacobie/">Ryanjacobie salon</a></blockquote></div>
+    </div>
+  </div>
+</div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=275546903306666&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  
+//https://rudrastyh.com/instagram/get-photos-with-javascript.html
+var token = '482435364.eb4949b.74fbe1d640604e3d913b280939fc6cf8', // learn how to obtain it below
+    // userid = 1217981644879628, // User ID - get it in source HTML of your Instagram profile or look at the next example :)
+    num_photos = 20; // how much photos do you want to get
+ 
+$.ajax({
+	url: 'https://api.instagram.com/v1/users/self/media/recent', // or /users/self/media/recent for Sandbox
+	dataType: 'jsonp',
+	type: 'GET',
+	data: {access_token: token, count: num_photos},
+	success: function(data){
+     console.log(data);
+     var profile = '<div class="profile-area">'+
+      // '<div style="background-image:url('+data.data[0].caption.from.profile_picture+'");" class="profile-pic">'+'</div>'
+      '<img src="'+data.data[0].caption.from.profile_picture+'" class="profile-pic">'+
+      '<h2>'+data.data[0].caption.from.username+'</h2>'+
+      '</div>';
+    $('.insta-container').prepend(profile);
+		for( x in data.data ){
+      var image = data.data[x].images.standard_resolution.url;
+      var ig_post = '<div>'+
+          '<div class="insta-image-container" style="background-image:url('+image+');"></div>'+
+          // '<img src="'+data.data[x].images.low_resolution.url+'">'+
+          '<div class="caption"><span class="username">'+ data.data[x].caption.from.username+ ':</span> ' +
+            data.data[x].caption.text+
+          '</div>'+
+          '<div class="read-more-link"><a href="'+data.data[x].link+'" target="blank">Read More</div>'+
+        '</div>';
+			$('.instafeed').append(ig_post); // data.data[x].images.low_resolution.url - URL of image, 306х306
+			// data.data[x].images.thumbnail.url - URL of image 150х150
+			// data.data[x].images.standard_resolution.url - URL of image 612х612
+			// data.data[x].link - Instagram post URL 
+		}
+	},
+	error: function(data){
+		console.log(data); // send the error notifications to console
+	}
+});
+</script>

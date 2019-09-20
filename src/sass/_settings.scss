@@ -1,0 +1,50 @@
+/*
+  GLOBAL VARIABLES
+
+  1. COLORS
+  2. HEADER
+  3. LINKS
+  4. BUTTON
+  5. COLORS
+
+ */
+
+//3. COLORS
+$white: #fff;
+$off-white: #F8F8F8;
+$black: #000;
+$dark-grey: #4A4A4A;
+$light-grey: #bdbdbd;
+
+// THEME COLORS
+// $main-color: #889F8A;
+$main-color:#94af76;
+$accent: #43393F;
+// $background: #F3F3F0;
+$background: #efebe9;
+
+// ALERTS
+$error-header: #f44336;
+$error-dark-accent: #ba000d;
+$error-button: #d32f2f;
+
+$success-header: #558b2f;
+$success-dark-accent: #387002;
+$success-button: #4b830d;
+
+//1. BODY
+$base-font: 'Open Sans',sans-serif;
+$base-font-size: 0.6em;
+$base-line-height: 2;
+$base-font-color: $dark-grey;
+$base-font-weight: 300;
+
+//2. HEADERS
+$header-font: 'Julius Sans One', sans-serif;
+$header-color: $main-color;
+$header-size: 1.6em;
+
+// Hero Settings
+$hero-height: 450px;
+$hero-height-mobile: 400px;
+
